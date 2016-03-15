@@ -3,10 +3,16 @@ $(document).ready(function(){
 	var player = $('player');
 
 	function Jukebox(current_song){
-		this.song_directory = [];
-		this.play_list = [];
 		this.current_song = current_song;
-		var current_song = current_song;
+		this.song_directory = [];
+		this.song_names = [];
+		this.song_display = function(){
+			for (i in this.song_directory){
+				this.song_names.push('<span class="song_list">' + this.song_directory[i].songName + '</span>');
+			};
+		}
+		
+		this.play_list = [];
 		this.add_song_to_directory = function(song){
 			this.song_directory.push(song);
 			return this.song_directory;
@@ -42,27 +48,27 @@ $(document).ready(function(){
 	jazz = new Song("Jazz", "jazz.mp3", "audio/jazz.mp3");
 	raven = new Song("Raven", "raven.mp3", "audio/raven.mp3");
 
-  jukebox = new Jukebox('mercury');
+  jukebox = new Jukebox(mercury);
 
-	jukebox.add_song_to_directory('mercury');
-	jukebox.add_song_to_directory('echo');
-	jukebox.add_song_to_directory('graffiti');
-	jukebox.add_song_to_directory('intro');
-	jukebox.add_song_to_directory('jazz');
-	jukebox.add_song_to_directory('raven');
-
-
+	jukebox.add_song_to_directory(mercury);
+	jukebox.add_song_to_directory(echo);
+	jukebox.add_song_to_directory(graffiti);
+	jukebox.add_song_to_directory(intro);
+	jukebox.add_song_to_directory(jazz);
+	jukebox.add_song_to_directory(raven);
 
 
 
-
+	jukebox.song_display();
 
 
 
 
 
 
-	$('.song_directory').html(song_directory);
+
+
+	$('#song_directory').html(jukebox.song_names.join(" "));
 
 
 
