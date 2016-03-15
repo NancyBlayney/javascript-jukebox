@@ -1,38 +1,64 @@
 $(document).ready(function(){
 
-	var player = $('player');
 
 	function Jukebox(current_song){
 		this.current_song = current_song;
 		this.song_directory = [];
 		this.song_names = [];
+		this.play_list = [];
 		this.song_display = function(){
 			for (i in this.song_directory){
-				this.song_names.push('<span class="song_list">' + this.song_directory[i].songName + '</span>');
+				this.song_names.push('<a href="#" class="song_list" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
 			};
 		}
-		
-		this.play_list = [];
+
 		this.add_song_to_directory = function(song){
 			this.song_directory.push(song);
 			return this.song_directory;
 		};
-		this.play_song = function(){
-			// if (current_song.play?){
-			// 	current_song.pause();
-			// }
-			// current_song = song
+
+		this.load_song = function(song){
+			this.song = song;
+			// this.current_song = song;	
+		}
+
+		this.play_song = function(song){
+			this.song = song;
 			player.play();
-			return current_song;
 		};
+
 		this.stop_song = function(){
-			current_song.pause();
+			player.pause();
 		};
+
 		this.queue_song = function(){
 
 		};
 
-	}
+		// $('.song_list').click(function(){
+		//   var load_track = $(this).attr('data-location');
+		//   console.log(load_track);
+		//   change_song(load_track);
+		// });
+
+   this.close = function(){ /** Do close */ }
+   this.addCloser = function(closebutton){ closebutton.onclick = this.close(); }
+
+
+		this.change_song = function(str){
+			var str = str;
+			audio = $("#player");
+			$('#src1').attr("src", str);
+			audio[0].pause();
+			audio[0].load();
+
+			audio[0].oncanplaythrough = audio[0].play();
+		}
+
+		this.selectSong = function()
+
+
+	};
 
 	function Song(songName, title, location){
 		this.songName = songName
@@ -73,9 +99,15 @@ $(document).ready(function(){
 
 
 
+	sauce = $('#src1');
+	source = sauce.src;
+	sauce.src ="audio/mercury.mp3";
 
 
-
+	$('.song_list').click(function(){
+	  var load_track = $(this).attr('data-location');
+	  jukebox.change_song(load_track);
+	});
 
 
 
