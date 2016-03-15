@@ -6,65 +6,71 @@ $(document).ready(function(){
 		this.song_directory = [];
 		this.song_names = [];
 		this.play_list = [];
+
 		this.song_display = function(){
 			for (i in this.song_directory){
-				this.song_names.push('<a href="#" class="song_list" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
+				this.song_names.push('<a href="#" class="song_list" onclick="jukebox.change_song()" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
 			};
 		}
 
-		this.add_song_to_directory = function(song){
-			this.song_directory.push(song);
+		// song_list = $('.song_list');
+
+
+		this.add_song_to_directory = function(song3){
+			this.song_directory.push(song3);
 			return this.song_directory;
 		};
 
-		this.load_song = function(song){
-			this.song = song;
-			// this.current_song = song;	
-		}
+		// this.load_song = function(song2){
+		// 	this.song = song2;
+		// 	// this.current_song = song;	
+		// }
 
-		this.play_song = function(song){
-			this.song = song;
-			player.play();
-		};
+		// this.play_song = function(song1){
+		// 	this.current_song = song1;
+		// 	player.play();
+		// };
 
-		this.stop_song = function(){
-			player.pause();
-		};
+		// this.stop_song = function(){
+		// 	player.pause();
+		// };
 
-		this.queue_song = function(){
+		// this.queue_song = function(){
 
-		};
-
-		// $('.song_list').click(function(){
-		//   var load_track = $(this).attr('data-location');
-		//   console.log(load_track);
-		//   change_song(load_track);
-		// });
-
-   this.close = function(){ /** Do close */ }
-   this.addCloser = function(closebutton){ closebutton.onclick = this.close(); }
+		// };
 
 
 		this.change_song = function(str){
+			console.log(str);
 			var str = str;
 			audio = $("#player");
-			$('#src1').attr("src", str);
+			$('source').remove();
+			$('#player').append('<source src="' + str + '" type="audio/mpeg">');
 			audio[0].pause();
 			audio[0].load();
 
 			audio[0].oncanplaythrough = audio[0].play();
 		}
 
-		this.selectSong = function()
-
 
 	};
+
+
+
+
+
 
 	function Song(songName, title, location){
 		this.songName = songName
 		this.title = title;
 		this.location = location;
-	}
+	};
+
+
+
+
+
+
 
 
 	mercury = new Song("Mercury", "mercury.mp3", "audio/mercury.mp3");
@@ -99,9 +105,10 @@ $(document).ready(function(){
 
 
 
-	sauce = $('#src1');
-	source = sauce.src;
-	sauce.src ="audio/mercury.mp3";
+	this.sauce = $('#src1');
+	source = this.sauce.src;
+
+
 
 
 	$('.song_list').click(function(){
