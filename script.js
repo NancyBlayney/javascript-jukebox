@@ -9,11 +9,10 @@ $(document).ready(function(){
 
 		this.song_display = function(){
 			for (i in this.song_directory){
-				this.song_names.push('<a href="#" class="song_list" onclick="jukebox.change_song()" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
+				this.song_names.push('<a href="#" class="song_list" onClick="selectSong.call(this)" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
 			};
+			$('#song_directory').html(jukebox.song_names.join(" "));
 		}
-
-		// song_list = $('.song_list');
 
 
 		this.add_song_to_directory = function(song3){
@@ -39,6 +38,13 @@ $(document).ready(function(){
 
 		// };
 
+		selectSong = function(){
+			var callingElement = this;
+			console.log(this);
+		  var load_track = $(this).attr('data-location');
+		  jukebox.change_song(load_track);
+		}
+
 
 		this.change_song = function(str){
 			console.log(str);
@@ -48,7 +54,6 @@ $(document).ready(function(){
 			$('#player').append('<source src="' + str + '" type="audio/mpeg">');
 			audio[0].pause();
 			audio[0].load();
-
 			audio[0].oncanplaythrough = audio[0].play();
 		}
 
@@ -100,21 +105,21 @@ $(document).ready(function(){
 
 
 
-	$('#song_directory').html(jukebox.song_names.join(" "));
+	// $('#song_directory').html(jukebox.song_names.join(" "));
 
 
 
 
-	this.sauce = $('#src1');
-	source = this.sauce.src;
+	// this.sauce = $('#src1');
+	// source = this.sauce.src;
 
 
 
 
-	$('.song_list').click(function(){
-	  var load_track = $(this).attr('data-location');
-	  jukebox.change_song(load_track);
-	});
+	// $('.song_list').click(function(){
+	//   var load_track = $(this).attr('data-location');
+	//   jukebox.change_song(load_track);
+	// });
 
 
 
