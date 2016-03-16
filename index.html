@@ -7,31 +7,33 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<h1>JUKEBOX</h1>
-		<div id="audio-list">
-			<audio id="player">
-				This is a string. I am going to append an entire new source tag here.
-			</audio>
-		</div>
-		<div id="song_directory">
-			
-		</div>
-		<div id="current_song_playing">
-			
-		</div>
-		<div class="controls">
-			<div id="play_song">
-				
+		<div class="container">
+			<h1>JUKEBOX</h1>
+			<div id="audio-list">
+				<audio id="player">
+					This is a string. I am going to append an entire new source tag here.
+				</audio>
 			</div>
-			<div id="pause_song">
-				
+			<div id="song_directory">
+			</div>
+			<div id="current_song_playing">
+			</div>
+			<br><br>
+			<br>
+			<div class="controls">
+				<div id="play_song">
+					<a href="#" class="playSong" onClick="playSong.call(this)"><span class="play-sign">PLAY</span></a>
+				</div>
+				<div id="stop_song">
+					<a href="#" class="stopSong" onClick="stopSong.call(this)"><span class="play-sign">STOP</span></a>
+				</div>
 			</div>
 			<div id="next_song">
+				<a href="#" class="queueSong" onClick="queueSong.call(this)"><span class="play-sign">QUEUE NEXT SONG.</span></a>
+			</div>
+			<div id="play_list">
 				
 			</div>
-		</div>
-		<div id="play_list">
-			
 		</div>
 	</body>
 </html>

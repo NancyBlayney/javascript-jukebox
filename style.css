@@ -2,6 +2,61 @@ body {
 
 }
 
+
 .song_list {
 	border: 1px solid black;
 }
+
+
+
+#current_song_playing {
+	border: 1px solid black;
+}
+
+.controls {
+	margin: 0 auto;
+	border: 1px solid black;
+	overflow: auto;
+	position: relative;
+	height:30vh; 
+	width:80vw;
+
+}
+
+a.playSong, a.stopSong {
+	border: 1px solid black;
+	height:100%;
+	width: 100%;
+	text-decoration: none;
+	color:white;
+	font-family: helvetica;
+	display: inline-block;
+}
+
+#play_song, #stop_song {
+	text-align: center;
+	position: absolute;
+	width:30vw;
+	height:20vh;
+	top:20%;
+}
+
+#play_song {
+	left:10%;
+}
+
+#stop_song {
+	right:10%;
+}
+
+a.playSong{
+	background-color: green;
+}
+
+a.stopSong{
+	background-color: red;
+}
+
+
+
+

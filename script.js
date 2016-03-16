@@ -2,11 +2,14 @@ $(document).ready(function(){
 
 
 	function Jukebox(current_song){
-		this.current_song = current_song;
+		this.current_song = current_song.location;
 		this.song_directory = [];
 		this.song_names = [];
 		this.play_list = [];
+		queueClicker = 0;
 
+
+//Shows a list of all of the songs in the Jukebox object
 		this.song_display = function(){
 			for (i in this.song_directory){
 				this.song_names.push('<a href="#" class="song_list" onClick="selectSong.call(this)" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a>');
@@ -15,46 +18,92 @@ $(document).ready(function(){
 		}
 
 
+//finds the current_song location and returns the object in a variable
+		this.findCurrentSong = function(){
+			currentSong = this.current_song;
+		}
+
+
+//Adds a song to the Jukebox object
 		this.add_song_to_directory = function(song3){
 			this.song_directory.push(song3);
 			return this.song_directory;
 		};
 
-		// this.load_song = function(song2){
-		// 	this.song = song2;
-		// 	// this.current_song = song;	
-		// }
 
-		// this.play_song = function(song1){
-		// 	this.current_song = song1;
-		// 	player.play();
-		// };
+//Grabs the song object location from the browser, then runs it through a loop to find the whole Song object & displays the name of the current song in the browser
+		this.showCurrentSong = function(){
+			for (i in this.song_directory){
+				if (this.current_song == this.song_directory[i].location){
+					var nowPlaying = this.song_directory[i].songName; 
+				}
+			}
+			$('#current_song_playing').html(nowPlaying);
+		};
 
-		// this.stop_song = function(){
-		// 	player.pause();
-		// };
 
-		// this.queue_song = function(){
+//Plays the current song
+		playSong = function(){
+			player.play();
+		};
 
-		// };
 
+//Pauses the current song
+		stopSong = function(){
+			player.pause();
+		};
+
+
+
+
+
+		queueSong = function(){
+			if (queueClicker == 0){
+				queueClicker = 1;
+			}
+			else {
+				queueClicker = 0;
+			}
+		};
+
+
+//Grabs the current song from the browser and passes it to the change_song method
 		selectSong = function(){
 			var callingElement = this;
-			console.log(this);
+			this.current_song = callingElement;
 		  var load_track = $(this).attr('data-location');
-		  jukebox.change_song(load_track);
+			if (queueClicker == 0){
+			  jukebox.change_song(load_track);
+			}
+			else {
+				console.log("waiting for the end of the song");
+				$('audio').on("ended", function(){
+					if (queueClicker == 1){
+						queueClicker = 0;
+						console.log("The song is over, and hopefully the next one will play");
+						jukebox.change_song(load_track);
+					};
+				});
+			};
 		}
 
 
+//Plays the song that is grabbed from the browser by the selectSong method and then passed over
 		this.change_song = function(str){
-			console.log(str);
-			var str = str;
-			audio = $("#player");
-			$('source').remove();
-			$('#player').append('<source src="' + str + '" type="audio/mpeg">');
-			audio[0].pause();
-			audio[0].load();
-			audio[0].oncanplaythrough = audio[0].play();
+			if (queueClicker == 0) {
+			  this.current_song = str;
+				var str = str;
+				audio = $("#player");
+				$('source').remove();
+				$('#player').append('<source src="' + str + '" type="audio/mpeg">');
+				audio[0].pause();
+				audio[0].load();
+				audio[0].oncanplaythrough = audio[0].play();
+				this.showCurrentSong();
+			}
+			else {
+
+			}
 		}
 
 
@@ -97,7 +146,7 @@ $(document).ready(function(){
 
 
 	jukebox.song_display();
-
+	jukebox.showCurrentSong();
 
 
 
