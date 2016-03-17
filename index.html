@@ -5,14 +5,15 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Nixie+One|Codystar|Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div class="container">
 			<div class="box box-shell">
 				<div class="box outer-box">
 					<div class="box inner-box">
+						<div class="cd-display"></div>
 						<div class="content">
-							<h1>JUKEBOX</h1>
 							<div id="audio-list">
 								<audio id="player">
 									This is a string. I am going to append an entire new source tag here.
@@ -22,18 +23,16 @@
 							</div>
 							<div id="current_song_playing">
 							</div>
-							<br><br>
-							<br>
 							<div class="controls">
 								<div id="play_song">
-									<a href="#" class="playSong button-3d" onClick="playSong.call(this)"><span class="play-sign">PLAY</span></a>
+									<a href="#" class="playSong button-3d" onClick="playSong.call(this)"><span class="play-sign">play</span></a>
 								</div>
 								<div id="stop_song">
-									<a href="#" class="stopSong button-3d" onClick="stopSong.call(this)"><span class="play-sign">STOP</span></a>
+									<a href="#" class="stopSong button-3d" onClick="stopSong.call(this)"><span class="play-sign">stop</span></a>
 								</div>
 							</div>
 							<div id="next_song">
-								<a href="#" class="queueSong" onClick="queueSong.call(this)"><span class="play-sign">QUEUE NEXT SONG.</span></a>
+								<a href="#" class="queueSong" onClick="queueSong.call(this)"><span class="play-sign">queue song</span></a>
 							</div>
 							<div id="play_list">
 								

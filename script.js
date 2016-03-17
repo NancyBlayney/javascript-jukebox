@@ -12,7 +12,7 @@ $(document).ready(function(){
 //Shows a list of all of the songs in the Jukebox object
 		this.song_display = function(){
 			for (i in this.song_directory){
-				this.song_names.push('<div class="song_item"><a href="#" class="song_list" onClick="selectSong.call(this)" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a></div>');
+				this.song_names.push('<div class="song_item"><div class="circle"></div><a href="#" class="song_list" onClick="selectSong.call(this)" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a></div>');
 			};
 			$('#song_directory').html(jukebox.song_names.join(" "));
 		}
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		this.showCurrentSong = function(){
 			for (i in this.song_directory){
 				if (this.current_song == this.song_directory[i].location){
-					var nowPlaying = this.song_directory[i].songName; 
+					var nowPlaying = this.song_directory[i].songName.toUpperCase(); 
 				}
 			}
 			$('#current_song_playing').html(nowPlaying);

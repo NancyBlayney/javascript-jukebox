@@ -3,71 +3,117 @@ body {
 }
 
 .container {
-	padding-top: 20%;
 	font-family: helvetica;
+	font-family: 'Nothing You Could Do', cursive;
+	padding-top: 50px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .box{
-	width: 90%;  
+	width: 94%;  
 	margin: 0 auto;
-  border:solid 2px #000;
-  padding-bottom: 50px;
-	border-radius: 50%/100px 100px 0 0;
-	padding-top: 2%;
+  border:solid 1px #000;
+	border-radius: 40%/100px 100px 0 0;
+	padding-top: 1%;
 }
 
 .box-shell{
-	height: 75vh;
-	background-color: cyan;
+	max-width: 400px;
+	border-bottom: 4px solid black;
+	height: 70vh;
+	background: cyan;
+	background: repeating-linear-gradient(#ff4444, #ffd9d9 15%, #ff4444 20%);
 }
 
 .outer-box{
-	height: 73vh;
+	height: 69.5vh;
 	background-color: green;
-	
+	border-bottom: 3px solid black;
+	background: repeating-linear-gradient(#98c100, #e0ecb2 2%, #98c100 4%);
 }
 
 .inner-box {
-	height: 71vh;
-	background-color: brown;
+	height: 69vh;
+	border-bottom: 2px solid black;
+	background: repeating-linear-gradient(to bottom right, #42280d, #64411e 10%, #42280d 30%);
 }
 
+.cd-display{
+   width: 80%;
+   margin: 0 auto;
+   margin-top: 5%;
+   height: 100px;
+   border-radius: 50% 50% 0 0;
+   background-image: url(cdwplay2.png); 
+   background-size: cover;
+   border: 1px #664f37 solid;
+   opacity: .7;
+}
 
 .content {
-	padding-top: 10%;
+	padding-top: 3%;
 	width: 70%;
 	margin: 0 auto;
 }
 
 #song_directory{
-	border: 1px black solid;
-	background-color: tan;
+	background-color: #341c04;
+	padding: 4%;
+	overflow: auto;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .song_item{
-	width: 70px;
+	width: 47%;
+	margin-left: 1%;
+	margin-bottom: 1%;
 	height: 20px;
 	border: 1px solid black;
+	float: left;
+	background: #FFF3B2;
+	background: linear-gradient(white, #FFF3B2 60%);
+	font-size: .95em;
+	text-align: right;
 }
 
 .song_list {
 	display: block;
 	height: 100%;
-	width: 100%;
+	padding-right: 10px;
 }
 
-
+.circle {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px; 
+	background-color: red;
+	margin: 4px 0 0 3px;
+	border: 1px #664f37 solid;
+	float: left;
+}
 
 #current_song_playing {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 5%;
+	height: 4vh;
 	border: 1px solid black;
+	text-align: right;
+	background-color: black;
+	color: white;	
+	font-family: 'Codystar', cursive;
+	font-style: italic;
+	padding-right: 10%;
+	padding-top: 3%;
 }
 
 .controls {
 	margin: 0 auto;
-	border: 1px solid black;
 	overflow: auto;
 	position: relative;
-	height:20vh; 
+	height:10vh; 
 	width:80%;
 
 }
@@ -78,13 +124,10 @@ a {
 }
 
 a.playSong, a.stopSong {
-	border: 1px solid black;
+	display: block;
 	height:100%;
 	width: 100%;
-	font-family: helvetica;
-	display: inline-block;
 	border-radius: 3px;
-	vertical-align: bottom;
 }
 
 #play_song, #stop_song {
@@ -95,29 +138,51 @@ a.playSong, a.stopSong {
 	top:10%;
 	border-radius: 2px;
   transition: all 0.1s;
-  box-shadow: -3px 4px 0px #664f37;
 }
 
-#play_song:active, #stop_song:active{
+#play_song:active, #stop_song:active, .queueSong:active{
 	box-shadow: 0px 2px 0px #664f37;
-	top:21%;
+	top:15%;
 }
 
 #play_song {
 	left:5%;
+  box-shadow: -1px 4px 0px #102510;
 }
 
 #stop_song {
 	right:5%;
+  box-shadow: -1px 4px 0px #2c0d0d;
 }
 
 a.playSong{
-	background-color: #008000;
+	background-color: #377e37;
+	border-left: 2px solid #102510;
+	border-bottom: 2px solid #102510;
 }
 
 a.stopSong{
-	background-color: #cc0000;
+	background-color: #942e2e;
+	border-left: 2px solid #2c0d0d;
+	border-bottom: 2px solid #2c0d0d;
+	
 }
+
+.queueSong{
+	width: 50vw;
+}
+
+a.queueSong{
+	border-left: 2px solid #664f37;
+	border-bottom: 2px solid #664f37;
+	display: block;
+	border-radius: 3px;
+	text-align: center;
+  transition: all 0.1s;
+  box-shadow: -1px 4px 0px #664f37;
+  background-color: white;
+}
+
 
 
 
