@@ -1,11 +1,109 @@
 body {
 	box-sizing: border-box;
+	background: #133737;
+}
+
+@media all and (min-width:500px){
+	body{
+		background: #2d8282;
+	}
+	.container {
+		max-width: 500px;
+		float: left;
+	}
+}
+
+@media all and (min-width:650px){
+	body{
+		background: #41BABA;
+	}
+}
+
+@media all and (min-width:800px){
+	body{
+		background: #66c7c7;
+	}
+	.disco{
+		display: inline !important;
+		position: fixed;
+		top: 2%;
+		right: 15%;
+	}
+
+	.disco img{
+		width: 200px;
+	}
+}
+
+@media all and (min-width:950px){
+	body{
+		background: #8dd5d5;
+	}
+
+	.disco{
+		right: 20%;
+	}
+}
+
+
+@media all and (min-width:1100px){
+	.extra{
+		position: relative;
+	}
+	.dancers {
+		position: fixed;
+		right: 15%;
+		top: 25%;
+	}
+	.dancers img{
+		vertical-align: bottom;
+    display: inline!important;
+    width: 18vw;
+	}
+	body{
+		background: #b3e3e3;
+	}
+
+	.disco{
+		right:25%;
+	}
+
+	@-webkit-keyframes spaceboots {
+		0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+		10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+		20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+		30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+		40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+		50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+		60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+		70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+		80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+		90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+		100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+	}
+	.dancers{
+		-webkit-animation-name: spaceboots;
+		-webkit-animation-duration: 0.8s;
+		-webkit-transform-origin:50% 50%;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: linear;
+	}
+
+}
+
+
+
+
+.disco{
+	display: none;
 }
 
 .container {
 	font-family: helvetica;
 	font-family: 'Nothing You Could Do', cursive;
-	padding-top: 50px;
+	position: fixed;
+	bottom: 8%;
+	left: 5%;
 	width: 90%;
 	margin: 0 auto;
 }
@@ -19,7 +117,7 @@ body {
 }
 
 .box-shell{
-	max-width: 400px;
+	max-width: 350px;
 	border-bottom: 4px solid black;
 	height: 70vh;
 	background: cyan;
@@ -78,6 +176,12 @@ body {
 	text-align: right;
 }
 
+.song_item:hover{
+  border-color: #66afe9;
+  box-shadow: 0 0 8px rgba(0,255,0, 0.6);
+}
+
+
 .song_list {
 	display: block;
 	height: 100%;
@@ -115,7 +219,6 @@ body {
 	position: relative;
 	height:10vh; 
 	width:80%;
-
 }
 
 a {
@@ -141,8 +244,14 @@ a.playSong, a.stopSong {
 }
 
 #play_song:active, #stop_song:active, .queueSong:active{
-	box-shadow: 0px 2px 0px #664f37;
+	box-shadow: 0px 2px 0px #332b25;
 	top:15%;
+}
+
+.queueSong:active{
+	border: 2px;
+	position:relative;
+	top: 3px;
 }
 
 #play_song {
@@ -156,31 +265,72 @@ a.playSong, a.stopSong {
 }
 
 a.playSong{
-	background-color: #377e37;
+	background: #377e37;
+	background: linear-gradient(#377e37, #87b187, #377e37);
 	border-left: 2px solid #102510;
 	border-bottom: 2px solid #102510;
 }
 
 a.stopSong{
-	background-color: #942e2e;
+	background: #942e2e;
+	background: linear-gradient(#942e2e, #b46c6c, #942e2e);
 	border-left: 2px solid #2c0d0d;
 	border-bottom: 2px solid #2c0d0d;
-	
 }
 
 .queueSong{
-	width: 50vw;
+	width: 40%;
+	margin: 0 auto;
 }
 
 a.queueSong{
-	border-left: 2px solid #664f37;
-	border-bottom: 2px solid #664f37;
+  background-color: #ffdab9;
+	border-left: 2px solid #332b25;
+	border-bottom: 2px solid #332b25;
 	display: block;
 	border-radius: 3px;
 	text-align: center;
   transition: all 0.1s;
-  box-shadow: -1px 4px 0px #664f37;
-  background-color: white;
+  box-shadow: -1px 2px 0px #332b25;
+  float: left;
+  margin-left: 20%;
+}
+
+.help {
+	text-align: center;
+	width: 15px;
+	font-size: .7em;
+	font-style: bold;
+	margin-left: 3%;
+	border-radius: 50%;
+	background-color: red;
+	border: 1px #664f37 solid;
+	float: left;
+}
+
+.popup{
+	display: none;
+	font-family: times;
+	font-size: .9em;
+	margin-top: 5%;
+	padding: 2%;
+	width: 200px;
+	border: 1px solid black;
+	background: white;
+}
+
+.help:hover{
+  box-shadow: 0 0 8px rgba(255,215,0, .6);
+}
+
+#next_song:after{
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.dancers img {
+	display: none;
 }
 
 

@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 
 	function Jukebox(current_song){
+		var that = this;
 		this.current_song = "";
 		this.song_directory = [];
 		this.song_names = [];
@@ -14,7 +15,7 @@ $(document).ready(function(){
 			for (i in this.song_directory){
 				this.song_names.push('<div class="song_item"><div class="circle"></div><a href="#" class="song_list" onClick="selectSong.call(this)" data-location="' + this.song_directory[i].location + '">' + this.song_directory[i].songName + '</a></div>');
 			};
-			$('#song_directory').html(jukebox.song_names.join(" "));
+			$('#song_directory').html(this.song_names.join(" "));
 		}
 
 
@@ -35,12 +36,19 @@ $(document).ready(function(){
 		this.showCurrentSong = function(){
 			for (i in this.song_directory){
 				if (this.current_song == this.song_directory[i].location){
-					var nowPlaying = this.song_directory[i].songName.toUpperCase(); 
+				  nowPlaying = this.song_directory[i].songName.toUpperCase(); 
 				}
 			}
-			$('#current_song_playing').html(nowPlaying);
+			$('#current_song_playing').clearQueue().html("")
+			showText(nowPlaying, 0);
 		};
 
+		var showText = function (message, index) { 
+			if (index < message.length) {
+		    $('#current_song_playing').append(message[index++]);
+		    setTimeout(function () { showText(message, index, 300); }, 300);
+		  }
+		}
 
 //Plays the current song
 		playSong = function(){
@@ -75,13 +83,13 @@ $(document).ready(function(){
 			this.current_song = callingElement;
 		  var load_track = $(this).attr('data-location');
 			if (queueClicker == 0){
-			  jukebox.change_song(load_track);
+			  that.change_song(load_track);
 			}
 			else {
 				$('audio').on("ended", function(){
 					if (queueClicker == 1){
 						queueClicker = 0;
-						jukebox.change_song(load_track);
+						that.change_song(load_track);
 					};
 				});
 			};
@@ -101,14 +109,7 @@ $(document).ready(function(){
 			this.showCurrentSong();
 		}
 
-
-
-
-
 	};
-
-
-
 
 
 
@@ -120,6 +121,17 @@ $(document).ready(function(){
 
 
 
+//CSS helper - a module will pop up to explain how to use the "queue" function
+	$('.help').mouseover(function(){
+		$('.popup').toggle();
+	}).mouseout(function(){
+		$('.popup').toggle();
+	});
+
+
+$('.disco').mouseover(function(){
+	$(".dancers").effect( "shake", {times:4}, 1000 )
+});
 
 
 

@@ -8,6 +8,9 @@
 		<link href='https://fonts.googleapis.com/css?family=Nixie+One|Codystar|Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
+		<div class="disco">
+			<img src="disco-ball.svg">
+		</div>
 		<div class="container">
 			<div class="box box-shell">
 				<div class="box outer-box">
@@ -25,21 +28,28 @@
 							</div>
 							<div class="controls">
 								<div id="play_song">
-									<a href="#" class="playSong button-3d" onClick="playSong.call(this)"><span class="play-sign">play</span></a>
+									<a href="#" class="playSong button-3d" onClick="playSong.call(this)"><span class="play-sign">||></span></a>
 								</div>
 								<div id="stop_song">
-									<a href="#" class="stopSong button-3d" onClick="stopSong.call(this)"><span class="play-sign">stop</span></a>
+									<a href="#" class="stopSong button-3d" onClick="stopSong.call(this)"><span class="play-sign">X</span></a>
 								</div>
 							</div>
 							<div id="next_song">
-								<a href="#" class="queueSong" onClick="queueSong.call(this)"><span class="play-sign">queue song</span></a>
+								<a href="#" class="queueSong" onClick="queueSong.call(this)"><span class="play-sign">QUEUE</span></a>
+								<div class="help">?</div>
 							</div>
-							<div id="play_list">
-								
+							<div class="popup">
+								Press the queue button, then make your selection. It will not play until the current song has finished playing.
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="extra">
+			<div class="dancers">
+				<img src="dance.png">
+				<img src="dance2.png">
 			</div>
 		</div>
 	</body>
