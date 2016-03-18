@@ -119,20 +119,20 @@ body {
 .box-shell{
 	max-width: 350px;
 	border-bottom: 4px solid black;
-	height: 70vh;
+	height: 500px;
 	background: cyan;
 	background: repeating-linear-gradient(#ff4444, #ffd9d9 15%, #ff4444 20%);
 }
 
 .outer-box{
-	height: 69.5vh;
+	height: 495px;
 	background-color: green;
 	border-bottom: 3px solid black;
 	background: repeating-linear-gradient(#98c100, #e0ecb2 2%, #98c100 4%);
 }
 
 .inner-box {
-	height: 69vh;
+	height: 490px;
 	border-bottom: 2px solid black;
 	background: repeating-linear-gradient(to bottom right, #42280d, #64411e 10%, #42280d 30%);
 }
@@ -217,7 +217,7 @@ body {
 	margin: 0 auto;
 	overflow: auto;
 	position: relative;
-	height:10vh; 
+	height:100px; 
 	width:80%;
 }
 
