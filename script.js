@@ -129,10 +129,6 @@ $(document).ready(function(){
 	});
 
 
-$('.disco').mouseover(function(){
-	$(".dancers").effect( "shake", {times:4}, 1000 )
-});
-
 
 
 

@@ -109,7 +109,7 @@ body {
 }
 
 .box{
-	width: 94%;  
+	width: 95%;  
 	margin: 0 auto;
   border:solid 1px #000;
 	border-radius: 40%/100px 100px 0 0;
@@ -153,6 +153,7 @@ body {
 	padding-top: 3%;
 	width: 70%;
 	margin: 0 auto;
+	height: 390px;
 }
 
 #song_directory{
@@ -172,7 +173,7 @@ body {
 	float: left;
 	background: #FFF3B2;
 	background: linear-gradient(white, #FFF3B2 60%);
-	font-size: .95em;
+	font-size: .7em;
 	text-align: right;
 }
 
@@ -180,7 +181,6 @@ body {
   border-color: #66afe9;
   box-shadow: 0 0 8px rgba(0,255,0, 0.6);
 }
-
 
 .song_list {
 	display: block;
@@ -202,7 +202,7 @@ body {
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 5%;
-	height: 4vh;
+	height: 30px;
 	border: 1px solid black;
 	text-align: right;
 	background-color: black;
